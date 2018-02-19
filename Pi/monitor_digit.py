@@ -7,7 +7,7 @@ model = load_model('../AI/CNN_model.h5')
 stream = io.BytesIO()                   # Create the in-memory stream
 with picamera.PiCamera() as camera:
     camera.resolution = (896,896)
-    camera.start_preview()
+    #camera.start_preview()
     while True:
         if readchar.readkey() == 'q':
             break
@@ -21,5 +21,5 @@ with picamera.PiCamera() as camera:
         img = img.reshape(1,28,28,1).astype('float32')
         img = np.ones(img.shape) - img
         prediction = model.predict_classes(img)
-        print('Handwritten',i,'is predicted as',prediction[0])
-    camera.stop_preview()
+        print('Pi sees',prediction[0])
+    #camera.stop_preview()
