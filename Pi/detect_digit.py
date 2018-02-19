@@ -7,11 +7,11 @@ model = load_model('../AI/CNN_model.h5')
 print('Press any key to detect...')
 stream = io.BytesIO()                   # Create the in-memory stream
 with picamera.PiCamera() as camera:
-    camera.resolution = (400,400)
+    camera.resolution = (1920,1920)
     camera.hflip = True
     camera.vflip = True
-    camera.brightness = 70
-    camera.contrast = 50
+    camera.brightness = 80
+    camera.contrast = 80
     #camera.start_preview()
     while True:
         if readchar.readkey() == 'q':
