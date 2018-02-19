@@ -3,7 +3,7 @@ from PIL import Image
 import matplotlib.image as mpimg
 import numpy as np
 from keras.models import load_model
-model = load_model('CNN_model.h5')
+model = load_model('../AI/CNN_model.h5')
 stream = io.BytesIO()                   # Create the in-memory stream
 with picamera.PiCamera() as camera:
     camera.resolution = (896,896)
