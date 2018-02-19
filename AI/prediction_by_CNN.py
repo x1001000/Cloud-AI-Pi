@@ -17,4 +17,4 @@ for i in range(10):
     img = img.reshape(1,28,28,1).astype('float32')
     img = np.ones(img.shape) - img              # MNIST的黑白是255～0，RGB的黑白是0～1
     prediction = model.predict_classes(img)
-    print('圖片',i,'的預測為',prediction[0])
+    print('Handwritten',i,'is predicted as',prediction[0])
