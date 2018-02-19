@@ -4,6 +4,7 @@ import matplotlib.image as mpimg
 import numpy as np
 from keras.models import load_model
 model = load_model('../AI/CNN_model.h5')
+print('Press any key to detect...')
 stream = io.BytesIO()                   # Create the in-memory stream
 with picamera.PiCamera() as camera:
     camera.resolution = (896,896)
@@ -11,9 +12,11 @@ with picamera.PiCamera() as camera:
     while True:
         if readchar.readkey() == 'q':
             break
-        camera.capture(stream, format='jpeg')
+        #camera.capture(stream, format='jpeg')
+        camera.capture('stream.jpg')
         stream.seek(0)
-        with Image.open(stream) as im:
+        #with Image.open(stream) as im:
+        with Image.open('stream.jpg') as im:
             im = im.convert('L')
             im.thumbnail((28,28))
             im.save('28x28.png')
