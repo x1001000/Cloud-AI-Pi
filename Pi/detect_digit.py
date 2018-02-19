@@ -7,7 +7,7 @@ model = load_model('../AI/CNN_model.h5')
 print('Press any key to detect...')
 stream = io.BytesIO()                   # Create the in-memory stream
 with picamera.PiCamera() as camera:
-    camera.resolution = (896,896)
+    camera.resolution = (400,400)
     camera.hflip = True
     camera.vflip = True
     camera.brightness = 70
