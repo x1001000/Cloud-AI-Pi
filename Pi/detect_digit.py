@@ -10,8 +10,8 @@ with picamera.PiCamera() as camera:
     camera.resolution = (896,896)
     camera.hflip = True
     camera.vflip = True
-    camera.brightness = 100
-    camera.contrast = 100
+    camera.brightness = 70
+    camera.contrast = 50
     #camera.start_preview()
     while True:
         if readchar.readkey() == 'q':
