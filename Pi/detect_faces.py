@@ -1,5 +1,5 @@
 import picamera
-from lib import detect, highlight
+from lib import detect, highlight, control
 with picamera.PiCamera() as camera:
     camera.resolution = (1920,1920)
     camera.hflip = True
@@ -12,3 +12,5 @@ with picamera.PiCamera() as camera:
         print(len(faces), 'face(s) found!')
         highlight.highlight(faces, 'faces.jpg')
         print('faces_highlight.jpg created!')
+        for _ in range(len(faces)):
+            control.move('k',2)
