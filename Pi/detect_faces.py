@@ -1,5 +1,5 @@
 import picamera, readchar
-from lib import detect, hightlight
+from lib import detect, highlight
 with picamera.PiCamera() as camera:
     camera.resolution = (1920,1920)
     camera.hflip = True
