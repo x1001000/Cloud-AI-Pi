@@ -1,4 +1,4 @@
-import detect                           # detect.py module
+#import detect                           # detect.py module
 import sys                              # get system arguments
 from PIL import Image, ImageDraw        # Python Imaging Library - Pillow
 
@@ -11,6 +11,7 @@ def highlight(faces, path):
         im.save(path[:-4]+'-out'+path[-4:])
 
 if __name__ == '__main__':
+    import detect
     PATH = sys.argv[1]
     faces = detect.faces(PATH)
     print(len(faces), 'face(s) found!')
