@@ -8,7 +8,7 @@ def highlight(faces, path):
         for face in faces:              # around detected faces
             box = [(vertex.x, vertex.y) for vertex in face.bounding_poly.vertices]
             draw.line(box + [box[0]], width=5, fill='#00ff00')
-        im.save(path[:-4]+'-out'+path[-4:])
+        im.save(path[:-4]+'_highlight'+path[-4:])
 
 if __name__ == '__main__':
     import detect

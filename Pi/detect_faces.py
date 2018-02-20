@@ -6,9 +6,10 @@ with picamera.PiCamera() as camera:
     camera.vflip = True
     camera.brightness = 100
     camera.contrast = 100
+    print('Press any key to detect...')
     while readchar.readkey() != 'q':
         camera.capture('faces.jpg')
         faces = detect.faces('faces.jpg')
         print(len(faces), 'face(s) found!')
         highlight.highlight(faces, 'faces.jpg')
-        print(PATH[:-4]+'-out'+PATH[-4:], 'created!')
+        print('faces_highlight.jpg created!')
