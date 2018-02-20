@@ -16,3 +16,4 @@ with picamera.PiCamera() as camera:
         for _ in range(len(faces)):
             control.move('k',2)
             sleep(0.5)
+    control.GPIO.cleanup()
