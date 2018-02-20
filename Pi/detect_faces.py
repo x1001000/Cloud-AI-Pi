@@ -1,4 +1,4 @@
-import picamera, readchar
+import picamera
 from lib import detect, highlight
 with picamera.PiCamera() as camera:
     camera.resolution = (1920,1920)
@@ -6,8 +6,7 @@ with picamera.PiCamera() as camera:
     camera.vflip = True
     camera.brightness = 100
     camera.contrast = 100
-    print('Press any key to detect...')
-    while readchar.readkey() != 'q':
+    while input('ENTER to detect, else to quit...') == '':
         camera.capture('faces.jpg')
         faces = detect.faces('faces.jpg')
         print(len(faces), 'face(s) found!')
