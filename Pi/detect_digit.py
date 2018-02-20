@@ -1,11 +1,8 @@
-import io, picamera, readchar
+import picamera, io, readchar
+from keras.models import load_model
 from PIL import Image
 import matplotlib.image as mpimg
 import numpy as np
-from keras.models import load_model
-model = load_model('../AI/CNN_model.h5')
-print('Press any key to detect...')
-stream = io.BytesIO()                   # Create the in-memory stream
 with picamera.PiCamera() as camera:
     camera.resolution = (1920,1920)
     camera.hflip = True
@@ -13,10 +10,12 @@ with picamera.PiCamera() as camera:
     camera.brightness = 80
     camera.contrast = 80
     #camera.start_preview()
-    while True:
-        if readchar.readkey() == 'q':
-            break
+    stream = io.BytesIO()                       # Create an in-memory stream
+    model = load_model('../AI/CNN_model.h5')    # as Camera warm-up time 2s
+    print('Press any key to detect...')
+    while readchar.readkey() != 'q':
         camera.capture('stream.jpg')
+        stream.seek(0)
         camera.capture(stream, format='jpeg')
         stream.seek(0)
         with Image.open(stream) as im:
