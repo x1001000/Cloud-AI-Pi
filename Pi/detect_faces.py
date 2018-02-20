@@ -14,6 +14,6 @@ with picamera.PiCamera() as camera:
         highlight.highlight(faces, 'faces.jpg')
         print('faces_highlight.jpg created!')
         for _ in range(len(faces)):
-            control.move('k',2)
+            control.move('k',1)
             sleep(0.5)
     control.GPIO.cleanup()
