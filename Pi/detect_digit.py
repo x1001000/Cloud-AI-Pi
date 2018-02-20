@@ -1,4 +1,6 @@
-import picamera#, io
+import picamera, sys#, io
+from time import sleep
+from lib import control
 from keras.models import load_model
 from PIL import Image
 import matplotlib.image as mpimg
@@ -26,4 +28,8 @@ with picamera.PiCamera() as camera:
         img = np.ones(img.shape) - img
         prediction = model.predict_classes(img)
         print('Pi sees',prediction[0])
+        for _ in range(prediction[0]):
+            control.move(sys.argv[1],float(sys.argv[2]))
+            sleep(0.5)
+    control.GPIO.cleanup()
     #camera.stop_preview()
