@@ -1,4 +1,4 @@
-# 作品展示
+# 實作展示
 
 ## Detect Digit
 `python3 detect_digit.py j左旋或k右旋 轉一圈所需秒數`
