@@ -1,4 +1,5 @@
 import picamera
+from time import sleep
 from lib import detect, highlight, control
 with picamera.PiCamera() as camera:
     camera.resolution = (1920,1920)
@@ -14,3 +15,4 @@ with picamera.PiCamera() as camera:
         print('faces_highlight.jpg created!')
         for _ in range(len(faces)):
             control.move('k',2)
+            sleep(0.5)
