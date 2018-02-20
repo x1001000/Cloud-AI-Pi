@@ -1,4 +1,4 @@
-import picamera, readchar#, io
+import picamera#, io
 from keras.models import load_model
 from PIL import Image
 import matplotlib.image as mpimg
@@ -12,8 +12,7 @@ with picamera.PiCamera() as camera:
     #camera.start_preview()                     # no preview in RDP
     #stream = io.BytesIO()                      # Create an in-memory stream
     model = load_model('../AI/CNN_model.h5')    # as Camera warm-up time 2s
-    print('Press any key to detect...')
-    while readchar.readkey() != 'q':
+    while input('ENTER to detect, else to quit...') == '':
         camera.capture('digit.jpg')            # 0.5s, png 5s
         #stream.seek(0)
         #camera.capture(stream, format='jpeg')  # 0.5s, png 5s
