@@ -14,11 +14,11 @@ with picamera.PiCamera() as camera:
     model = load_model('../AI/CNN_model.h5')    # as Camera warm-up time 2s
     print('Press any key to detect...')
     while readchar.readkey() != 'q':
-        camera.capture('stream.jpg')            # 0.5s, png 5s
+        camera.capture('digit.jpg')            # 0.5s, png 5s
         #stream.seek(0)
         #camera.capture(stream, format='jpeg')  # 0.5s, png 5s
         #stream.seek(0)
-        with Image.open('stream.jpg') as im:    # < 0.02s, no matter file or memory
+        with Image.open('digit.jpg') as im:    # < 0.02s, no matter file or memory
             im = im.convert('L')
             im.thumbnail((28,28))
             im.save('28x28.png')
