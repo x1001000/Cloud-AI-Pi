@@ -1,4 +1,4 @@
-import picamera
+import picamera, sys
 from time import sleep
 from lib import detect, highlight, control
 with picamera.PiCamera() as camera:
@@ -14,6 +14,6 @@ with picamera.PiCamera() as camera:
         highlight.highlight(faces, 'faces.jpg')
         print('faces_highlight.jpg created!')
         for _ in range(len(faces)):
-            control.move('k',0.95)
+            control.move(sys.argv[1],float(sys.argv[2]))
             sleep(0.5)
     control.GPIO.cleanup()
