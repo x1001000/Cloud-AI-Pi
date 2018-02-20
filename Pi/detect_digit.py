@@ -7,8 +7,8 @@ with picamera.PiCamera() as camera:
     camera.resolution = (1920,1920)
     camera.hflip = True
     camera.vflip = True
-    camera.brightness = 100
     camera.contrast = 100
+    camera.brightness = 90
     #camera.start_preview()                     # no preview in RDP
     #stream = io.BytesIO()                      # Create an in-memory stream
     model = load_model('../AI/CNN_model.h5')    # as Camera warm-up time 2s
