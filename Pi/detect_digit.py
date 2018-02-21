@@ -13,7 +13,7 @@ with picamera.PiCamera() as camera:
     camera.brightness = 90
     #camera.start_preview()                     # no preview in RDP
     #stream = io.BytesIO()                      # Create an in-memory stream
-    model = load_model('../AI/CNN_model.h5')    # as Camera warm-up time 2s
+    model = load_model('lib/CNN_model.h5')    # as Camera warm-up time 2s
     while input('ENTER to detect, else to quit...') == '':
         camera.capture('digit.jpg')            # 0.5s, png 5s
         #stream.seek(0)
