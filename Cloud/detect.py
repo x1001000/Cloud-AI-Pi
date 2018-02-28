@@ -22,4 +22,4 @@ if __name__ == '__main__':
     for face in Faces:
         if not happy(face):
             count += 1
-    print(count, 'seem(s) NOT so happy...')
+    print(count, 'seem(s) NOT happy...')

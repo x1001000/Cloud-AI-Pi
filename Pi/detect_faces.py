@@ -15,6 +15,7 @@ with picamera.PiCamera() as camera:
         print('faces-out.jpg created!')
         for face in faces:
             if detect.happy(face) == False:
+                print('Pi guesses someone is NOT happy...')
                 for _ in range(3):
                     control.move('j',0.2)
                     control.move('k',0.2)
