@@ -15,7 +15,9 @@ with picamera.PiCamera() as camera:
         print('faces_highlight.jpg created!')
         for face in faces:
             if detect.happy(face) == False:
-                control.move('s', 1)
+                for _ in range(3):
+                    control.move('z',0.2)
+                    control.move('x',0.2)
                 break
         else:
             for _ in range(len(faces)):
