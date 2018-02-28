@@ -10,7 +10,7 @@ def highlight(faces, path, color='lime'):
         im.save(path[:-4]+'-out'+path[-4:])
 
 def happy(face):
-    return True if face.joy_likelihood > 3 else False   # 5 is very likely
+    return True if face.joy_likelihood >= 3 else False  # 5 very likely, 3 possible
 
 if __name__ == '__main__':
     PATH = sys.argv[1]
