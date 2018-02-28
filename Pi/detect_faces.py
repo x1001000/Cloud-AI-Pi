@@ -16,8 +16,8 @@ with picamera.PiCamera() as camera:
         for face in faces:
             if detect.happy(face) == False:
                 for _ in range(3):
-                    control.move('z',0.2)
-                    control.move('x',0.2)
+                    control.move('j',0.2)
+                    control.move('k',0.2)
                 break
         else:
             for _ in range(len(faces)):
