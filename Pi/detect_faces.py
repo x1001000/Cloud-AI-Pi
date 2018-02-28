@@ -12,7 +12,7 @@ with picamera.PiCamera() as camera:
         faces = detect.faces('faces.jpg')
         print(len(faces), 'face(s) found!')
         highlight.highlight(faces, 'faces.jpg')
-        print('faces_highlight.jpg created!')
+        print('faces-out.jpg created!')
         for face in faces:
             if detect.happy(face) == False:
                 for _ in range(3):
