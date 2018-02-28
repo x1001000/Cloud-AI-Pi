@@ -1,5 +1,4 @@
 import sys                              # get system arguments
-import detect                           # detect.py module
 from PIL import Image, ImageDraw        # Python Imaging Library - Pillow
 
 def highlight(faces, path, color='lime'):
@@ -15,6 +14,7 @@ def happy(face):
 
 if __name__ == '__main__':
     PATH = sys.argv[1]
+    import detect   # to use highlight.py as a module, better import detect.py here
     faces = detect.faces(PATH)
     print(len(faces), 'face(s) found!')
     highlight(faces, PATH)
