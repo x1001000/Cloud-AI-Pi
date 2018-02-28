@@ -13,7 +13,12 @@ with picamera.PiCamera() as camera:
         print(len(faces), 'face(s) found!')
         highlight.highlight(faces, 'faces.jpg')
         print('faces_highlight.jpg created!')
-        for _ in range(len(faces)):
-            control.move(sys.argv[1],float(sys.argv[2]))
-            sleep(0.5)
+        for face in faces:
+            if detect.happy(face) == False:
+                control.move('s', 1)
+                break
+        else:
+            for _ in range(len(faces)):
+                control.move(sys.argv[1],float(sys.argv[2]))
+                sleep(0.5)
     control.GPIO.cleanup()
