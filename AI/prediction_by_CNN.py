@@ -1,6 +1,4 @@
-import tensorflow as tf
-
-from tf.keras.models import load_model
+from tensorflow.keras.models import load_model
 model = load_model('CNN_model.h5')
 
 from PIL import Image
