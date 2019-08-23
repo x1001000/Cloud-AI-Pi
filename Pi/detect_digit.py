@@ -1,9 +1,7 @@
-import tensorflow as tf
-
 import picamera, sys#, io
 from time import sleep
 from lib import control
-from tf.keras.models import load_model
+from tensorflow.keras.models import load_model
 from PIL import Image
 import matplotlib.image as mpimg
 import numpy as np
